@@ -10,6 +10,14 @@ class MockFlutterUserChannelPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  
+  @override
+  late Function(String? value) updateUserToken;
+  
+  @override
+  void listenUserToken(Function(String? value) updateUserToken) {
+    // TODO: implement listenUserToken
+  }
 }
 
 void main() {
@@ -24,6 +32,6 @@ void main() {
     MockFlutterUserChannelPlatform fakePlatform = MockFlutterUserChannelPlatform();
     FlutterUserChannelPlatform.instance = fakePlatform;
 
-    expect(await flutterUserChannelPlugin.getPlatformVersion(), '42');
+    // expect(await flutterUserChannelPlugin.getPlatformVersion(), '42');
   });
 }

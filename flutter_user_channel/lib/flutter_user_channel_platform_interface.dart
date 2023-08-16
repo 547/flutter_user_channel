@@ -8,7 +8,8 @@ abstract class FlutterUserChannelPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static FlutterUserChannelPlatform _instance = MethodChannelFlutterUserChannel();
+  static FlutterUserChannelPlatform _instance =
+      MethodChannelFlutterUserChannel();
 
   /// The default instance of [FlutterUserChannelPlatform] to use.
   ///
@@ -23,7 +24,8 @@ abstract class FlutterUserChannelPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  late Function(String? value) updateUserToken;
+  void listenUserToken(Function(String? value) updateUserToken) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }
