@@ -15,25 +15,23 @@ class MethodChannelFlutterUserChannel extends FlutterUserChannelPlatform {
 
   MethodChannelFlutterUserChannel() {
     Logger.log("=========== 初始化Flutter user channel");
-    methodChannel.setMethodCallHandler((call) {
+    methodChannel.setMethodCallHandler((call) async {
       Logger.log(
           "Native 调用 Flutter 成功，channel: ${methodChannel.name} 方法：${call.method} 参数是：${call.arguments}");
-      var completer = Completer<dynamic>();
       switch (call.method) {
         case "updateWithUserToken":
           final token = call.arguments["token"];
-          updateUserToken.call(token);
-          completer.complete("成功");
-          break;
+          final result = await updateUserToken.call(token);
+          return result;
         default:
-          break;
+          return FlutterError("方法名错误");
       }
-      return completer.future;
     });
   }
 
   @override
-  void listenUserToken(Function(String? value) updateUserToken) {
+  void listenUserToken(
+      Future<dynamic> Function(String? value) updateUserToken) {
     this.updateUserToken = updateUserToken;
   }
 }
