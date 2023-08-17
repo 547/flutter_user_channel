@@ -1,6 +1,6 @@
 name: flutter_user_channel
 description: flutter和原生混编时，用于android和iOS更新flutter中token.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/547/flutter_user_channel/tree/main/flutter_user_channel
 
 environment:
