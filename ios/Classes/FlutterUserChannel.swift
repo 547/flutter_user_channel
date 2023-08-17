@@ -1,7 +1,7 @@
 import Flutter
 import UIKit
 
-public class FlutterUserChannel: NSObject, FlutterPlugin {
+public class FlutterUserChannel: NSObject {
   public static func updateUserToken(with token: String?, engine: FlutterEngine, callback: @escaping (Any?) -> ()) {
         // 创建渠道
         let channel = FlutterMethodChannel(name: "com.seven.user.flutter_user_channel", binaryMessenger: engine.binaryMessenger)

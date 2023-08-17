@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
 /** FlutterUserChannelPlugin */
-class FlutterUserChannel: FlutterPlugin, MethodCallHandler {
+class FlutterUserChannel {
    companion object fun updateUserToken(token: String, engine: FlutterEngine) {
         val messenger = engine.dartExecutor.binaryMessenger
 
