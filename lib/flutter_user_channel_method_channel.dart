@@ -26,13 +26,11 @@ class MethodChannelFlutterUserChannel extends FlutterUserChannelPlatform {
           break;
         case "transmitOtherInfo":
           final info = call.arguments["info"];
-          await transmitOtherInfo.call(info).then((value) {
-            result = value;
-            Logger.log("===========transmitOtherInfo then $value");
-          }).catchError((onError) {
-            result = onError;
-            Logger.log("===========transmitOtherInfo catchError $onError");
-          });
+          Logger.log(
+              "===========transmitOtherInfo ${transmitOtherInfo.toString()}");
+          result = await transmitOtherInfo.call(info);
+          Logger.log(
+              "===========transmitOtherInfo result ${result.toString()}");
           break;
         default:
           result = FlutterError("方法名错误");
@@ -51,6 +49,8 @@ class MethodChannelFlutterUserChannel extends FlutterUserChannelPlatform {
   @override
   void listenOtherInfo(
       Future Function(Map<String, dynamic>? value) transmitOtherInfo) {
+    Logger.log(
+        "=========== set transmitOtherInfo ${transmitOtherInfo.toString()}");
     this.transmitOtherInfo = transmitOtherInfo;
   }
 }
