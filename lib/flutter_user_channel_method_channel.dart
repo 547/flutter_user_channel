@@ -25,9 +25,8 @@ class MethodChannelFlutterUserChannel extends FlutterUserChannelPlatform {
           result = await updateUserToken.call(token);
           break;
         case "transmitOtherInfo":
-          final info = call.arguments["info"];
-          Logger.log(
-              "===========transmitOtherInfo ${transmitOtherInfo.toString()}");
+          final info = call.arguments["info"] as Map<String, dynamic>?;
+          Logger.log("===========transmitOtherInfo $info");
           result = await transmitOtherInfo.call(info);
           Logger.log(
               "===========transmitOtherInfo result ${result.toString()}");
