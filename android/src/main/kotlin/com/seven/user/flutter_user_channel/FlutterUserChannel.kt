@@ -16,7 +16,7 @@ class FlutterUserChannel {
            val messenger = engine.dartExecutor.binaryMessenger
 
            // 新建一个 Channel 对象
-           val channel = MethodChannel(messenger, "com.seven.user.flutter_user_channel")
+           val channel = MethodChannel(messenger, "com.seven.user.flutter_user_channel.token")
 
            // 调用 Flutter 中的方法
            val params = mapOf(
@@ -28,7 +28,7 @@ class FlutterUserChannel {
            val messenger = engine.dartExecutor.binaryMessenger
 
            // 新建一个 Channel 对象
-           val channel = MethodChannel(messenger, "com.seven.user.flutter_user_channel")
+           val channel = MethodChannel(messenger, "com.seven.user.flutter_user_channel.other_info")
 
            // 调用 Flutter 中的方法
            val params = mapOf(
