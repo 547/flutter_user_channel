@@ -25,11 +25,8 @@ class MethodChannelFlutterUserChannel extends FlutterUserChannelPlatform {
           result = await updateUserToken.call(token);
           break;
         case "transmitOtherInfo":
-          final info = call.arguments["info"] as Map<String, dynamic>?;
-          Logger.log("===========transmitOtherInfo $info");
+          final info = call.arguments["info"];
           result = await transmitOtherInfo.call(info);
-          Logger.log(
-              "===========transmitOtherInfo result ${result.toString()}");
           break;
         default:
           result = FlutterError("方法名错误");
@@ -46,10 +43,7 @@ class MethodChannelFlutterUserChannel extends FlutterUserChannelPlatform {
   }
 
   @override
-  void listenOtherInfo(
-      Future Function(Map<String, dynamic>? value) transmitOtherInfo) {
-    Logger.log(
-        "=========== set transmitOtherInfo ${transmitOtherInfo.toString()}");
+  void listenOtherInfo(Future Function(dynamic value) transmitOtherInfo) {
     this.transmitOtherInfo = transmitOtherInfo;
   }
 }
