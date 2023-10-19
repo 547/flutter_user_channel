@@ -11,5 +11,14 @@ public class FlutterUserChannel: NSObject {
             callback(result)
         }
   }
-
+  /// 传递其他信息
+  public static func transmitOtherInfo(with info: [String : Any]?, engine: FlutterEngine, callback: @escaping (Any?) -> ()) {
+        // 创建渠道
+        let channel = FlutterMethodChannel(name: "com.seven.user.flutter_user_channel", binaryMessenger: engine.binaryMessenger)
+        // 通过渠道调用 Flutter 的方法
+        let params: Dictionary<String, String> = ["info": info]
+        channel.invokeMethod("transmitOtherInfo", arguments: params) { result in
+            callback(result)
+        }
+  }
 }

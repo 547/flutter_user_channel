@@ -24,5 +24,17 @@ class FlutterUserChannel {
            )
            channel.invokeMethod("updateWithUserToken", params)
        }
+       fun transmitOtherInfo(info: Map<String, Any>, engine: FlutterEngine) {
+           val messenger = engine.dartExecutor.binaryMessenger
+
+           // 新建一个 Channel 对象
+           val channel = MethodChannel(messenger, "com.seven.user.flutter_user_channel")
+
+           // 调用 Flutter 中的方法
+           val params = mapOf(
+               "info" to info
+           )
+           channel.invokeMethod("transmitOtherInfo", params)
+       }
    }
 }

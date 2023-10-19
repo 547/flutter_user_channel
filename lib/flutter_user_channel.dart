@@ -6,4 +6,9 @@ class FlutterUserChannel {
   static listenUserToken(Future<dynamic> Function(String?) updateUserToken) {
     FlutterUserChannelPlatform.instance.listenUserToken(updateUserToken);
   }
+
+  static listenOtherInfo(
+      Future<dynamic> Function(Map<String, dynamic>?) transmitOtherInfo) {
+    FlutterUserChannelPlatform.instance.listenOtherInfo(transmitOtherInfo);
+  }
 }

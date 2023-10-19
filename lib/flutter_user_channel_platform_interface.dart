@@ -25,8 +25,14 @@ abstract class FlutterUserChannelPlatform extends PlatformInterface {
   }
 
   late Future<dynamic> Function(String? value) updateUserToken;
+  late Future<dynamic> Function(Map<String, dynamic>? value) transmitOtherInfo;
   void listenUserToken(
       Future<dynamic> Function(String? value) updateUserToken) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  void listenOtherInfo(
+      Future<dynamic> Function(Map<String, dynamic>? value) transmitOtherInfo) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }
