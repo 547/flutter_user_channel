@@ -1,3 +1,4 @@
-## 1.0.3
+## 1.0.4
 
-* 添加了使用说明和例子.
+* 修改 iOS、Android FlutterUserChannel改写成单例，避免多次创建FlutterMethodChannel
+
