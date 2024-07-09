@@ -39,6 +39,9 @@ flutter:
         pluginClass: FlutterUserChannelPlugin
       ios:
         pluginClass: FlutterUserChannelPlugin
+      ohos:
+        package: com.seven.user.flutter_user_channel
+        pluginClass: FlutterUserChannelPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

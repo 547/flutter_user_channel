@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "flutter_user_channel",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}
