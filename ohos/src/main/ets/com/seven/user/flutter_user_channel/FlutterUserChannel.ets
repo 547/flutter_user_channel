@@ -8,7 +8,7 @@ import {
   FlutterEngine,
 } from '@ohos/flutter_ohos';
 
-export class FlutterUserChannel {
+export default class FlutterUserChannel {
   static tokenChannelName = "com.seven.user.flutter_user_channel.token"
   static otherInfoChannelName = "com.seven.user.flutter_user_channel.other_info"
   static tokenChannelMethod = "updateWithUserToken"
@@ -31,7 +31,7 @@ export class FlutterUserChannel {
 
   }
 
-  static transmitOtherInfo(info: Map<string, object>, engine: FlutterEngine) {
+  static transmitOtherInfo(info: Record<string, Object>, engine: FlutterEngine) {
     FlutterUserChannel.getUserMethodChannel(engine).invokeMethod(FlutterUserChannel.tokenChannelMethod,
       {
         "info": info
