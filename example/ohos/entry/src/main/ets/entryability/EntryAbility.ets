@@ -14,7 +14,7 @@
 */
 
 import { FlutterAbility, FlutterEngine } from '@ohos/flutter_ohos';
-import { FlutterUserChannel } from 'flutter_user_channel/src/main/ets/com/seven/user/flutter_user_channel/FlutterUserChannel';
+import FlutterUserChannel from 'flutter_user_channel/src/main/ets/com/seven/user/flutter_user_channel/FlutterUserChannel';
 import { GeneratedPluginRegistrant } from '../plugins/GeneratedPluginRegistrant';
 import window from '@ohos.window';
 
