@@ -31,7 +31,7 @@ export default class FlutterUserChannel {
 
   }
 
-  static transmitOtherInfo(info: Any, engine: FlutterEngine) {
+  static transmitOtherInfo(info: Record<string, Object>, engine: FlutterEngine) {
     FlutterUserChannel.getUserMethodChannel(engine).invokeMethod(FlutterUserChannel.tokenChannelMethod,
       {
         "info": info
