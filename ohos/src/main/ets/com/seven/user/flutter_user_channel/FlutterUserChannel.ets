@@ -8,23 +8,31 @@ import {
   FlutterEngine,
 } from '@ohos/flutter_ohos';
 
-export class FlutterUserChannel {
+export default class FlutterUserChannel {
   static tokenChannelName = "com.seven.user.flutter_user_channel.token"
   static otherInfoChannelName = "com.seven.user.flutter_user_channel.other_info"
   static tokenChannelMethod = "updateWithUserToken"
   static otherInfoChannelMethod = "transmitOtherInfo"
-  static methodChannel: MethodChannel | null = null
+  static tokenChannel: MethodChannel | null = null
+  static otherInfoChannel: MethodChannel | null = null
 
-  static getUserMethodChannel(engine: FlutterEngine): MethodChannel {
-    if (FlutterUserChannel.methodChannel == null) {
-      FlutterUserChannel.methodChannel = new MethodChannel(engine.dartExecutor.getBinaryMessenger(),
+  static getTokenChannel(engine: FlutterEngine): MethodChannel {
+    if (FlutterUserChannel.tokenChannel == null) {
+      FlutterUserChannel.tokenChannel = new MethodChannel(engine.dartExecutor.getBinaryMessenger(),
         FlutterUserChannel.tokenChannelName)
     }
-    return FlutterUserChannel.methodChannel as MethodChannel
+    return FlutterUserChannel.tokenChannel as MethodChannel
+  }
+  static getOtherInfoChannel(engine: FlutterEngine): MethodChannel {
+    if (FlutterUserChannel.otherInfoChannel == null) {
+      FlutterUserChannel.otherInfoChannel = new MethodChannel(engine.dartExecutor.getBinaryMessenger(),
+        FlutterUserChannel.otherInfoChannelName)
+    }
+    return FlutterUserChannel.otherInfoChannel as MethodChannel
   }
 
   static updateUserToken(token: string, engine: FlutterEngine) {
-    FlutterUserChannel.getUserMethodChannel(engine).invokeMethod(FlutterUserChannel.tokenChannelMethod,
+    FlutterUserChannel.getTokenChannel(engine).invokeMethod(FlutterUserChannel.tokenChannelMethod,
       {
         "token": token
       })
@@ -32,7 +40,7 @@ export class FlutterUserChannel {
   }
 
   static transmitOtherInfo(info: Map<string, object>, engine: FlutterEngine) {
-    FlutterUserChannel.getUserMethodChannel(engine).invokeMethod(FlutterUserChannel.tokenChannelMethod,
+    FlutterUserChannel.getOtherInfoChannel(engine).invokeMethod(FlutterUserChannel.tokenChannelMethod,
       {
         "info": info
       })
