@@ -15,7 +15,7 @@
 
 import common from '@ohos.app.ability.common';
 import { FlutterEngine, FlutterEngineCache, FlutterPage } from '@ohos/flutter_ohos'
-import { FlutterUserChannel } from 'flutter_user_channel/src/main/ets/com/seven/user/flutter_user_channel/FlutterUserChannel';
+import FlutterUserChannel from 'flutter_user_channel/src/main/ets/com/seven/user/flutter_user_channel/FlutterUserChannel';
 
 let storage = LocalStorage.getShared()
 const EVENT_BACK_PRESS = 'EVENT_BACK_PRESS'
@@ -29,7 +29,9 @@ struct Index {
   build() {
     Column() {
       Button('token').margin(80).onClick((e) => {
-        FlutterUserChannel.updateUserToken("123", AppStorage.get<FlutterEngine>("flutterEngine"))
+        // FlutterUserChannel.updateUserToken("123", AppStorage.get<FlutterEngine>("flutterEngine"))
+        let info: Map<string, object> = new Map().set('apiEnvironment', 'test')
+        FlutterUserChannel.transmitOtherInfo(info, AppStorage.get<FlutterEngine>("flutterEngine"))
       })
       // FlutterPage({ viewId: this.viewId })
     }
