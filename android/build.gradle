@@ -53,7 +53,9 @@ if (localPropertiesFile.exists()) {
     }
 }
 //获取flutter的sdk路径
-def flutterRoot = localProperties.getProperty('flutter.sdk')
+def flutterRoot = project.findProperty("flutter.sdk") ?: 
+                  System.getenv("FLUTTER_ROOT") ?: 
+                  localProperties.getProperty("flutter.sdk")
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
