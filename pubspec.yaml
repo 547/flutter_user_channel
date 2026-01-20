@@ -1,5 +1,5 @@
 name: flutter_user_channel
-description: flutter和原生混编时，用于android和iOS更新flutter中token, 以及其它信息.
+description: 此插件现已停止维护。请使用新插件：platform_bridge (https://pub.dev/packages/platform_bridge) - flutter和原生混编时，用于android和iOS更新flutter中token, 以及其它信息.
 version: 1.0.4
 homepage: https://github.com/547/flutter_user_channel/tree/main/flutter_user_channel
 
@@ -60,12 +60,12 @@ flutter:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #       - fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+  #       - fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
   # For details regarding fonts in packages, see

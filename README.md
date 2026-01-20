@@ -1,5 +1,13 @@
 # flutter_user_channel
 
+## ⚠️ 注意：此插件不再维护
+
+**此插件现已停止维护和更新。**
+
+建议您迁移到新插件：[platform_bridge](https://pub.dev/packages/platform_bridge)
+
+---
+
 该插件主要用于flutter和原生混编时(配合了[flutter_boost](https://github.com/alibaba/flutter_boost)一起使用的)，原生（android和iOS）更新flutter中的user token、 其它信息.
 
 ## Getting Started
